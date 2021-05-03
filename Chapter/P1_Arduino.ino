@@ -65,13 +65,13 @@ void loop()
   Registers[DI2] = 1; // update data to be read by the master
   Registers[DI3] = 0; // update data to be read by the master
 
-  if (Registers[DW0] == 0){
+  if (Registers[DW4] == 0){
     digitalWrite(LED_BUILTIN, LOW);
-      Registers[DI1] = 0;
+      Registers[DI4] = 0;
   }  
   else {
     digitalWrite(LED_BUILTIN, HIGH);
-      Registers[DI1] = 1;
+      Registers[DI4] = 1;
   }
   
   // modbus_update() is the only method used in loop(). It returns the total error
