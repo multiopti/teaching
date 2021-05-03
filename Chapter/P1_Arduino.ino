@@ -55,7 +55,7 @@ void loop()
   }
   Registers[AI1] = 75; // update data to be read by the master
   Registers[AI2] = 100; // update data to be read by the master
-  U = Registers[AW0];
+  U = Registers[AW3];
   Y = 0.9672*Y + 0.06557*U;
   Registers[AI3] = (unsigned int) Y; // update data to be read by the master
   Registers[AI4] = 5; // update data to be read by the master
