@@ -61,9 +61,9 @@ void loop()
   Registers[AI4] = 5; // update data to be read by the master
 
   Registers[DI0] = 1; // update data to be read by the master
-  Registers[DI2] = 0; // update data to be read by the master
-  Registers[DI3] = 1; // update data to be read by the master
-  Registers[DI4] = 0; // update data to be read by the master
+  Registers[DI1] = 0; // update data to be read by the master
+  Registers[DI2] = 1; // update data to be read by the master
+  Registers[DI3] = 0; // update data to be read by the master
 
   if (Registers[DW0] == 0){
     digitalWrite(LED_BUILTIN, LOW);
