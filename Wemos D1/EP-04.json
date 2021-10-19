@@ -1,0 +1,393 @@
+[
+    {
+        "id": "1413a3e3.3f22bc",
+        "type": "tab",
+        "label": "From Wemos - v2",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "b65a892f.cc5fc8",
+        "type": "mqtt in",
+        "z": "1413a3e3.3f22bc",
+        "name": "",
+        "topic": "JKLU/Gustavo2",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "dd1a0315.b23ae",
+        "x": 280,
+        "y": 160,
+        "wires": [
+            [
+                "3aec219f.9f331e"
+            ]
+        ]
+    },
+    {
+        "id": "43dbddc3.e17024",
+        "type": "debug",
+        "z": "1413a3e3.3f22bc",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "3aec219f.9f331e",
+        "type": "change",
+        "z": "1413a3e3.3f22bc",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$number(payload)/100",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 160,
+        "wires": [
+            [
+                "43dbddc3.e17024",
+                "c2ee5f77.f0511",
+                "77ee2f20.606d5"
+            ]
+        ]
+    },
+    {
+        "id": "c2ee5f77.f0511",
+        "type": "ui_gauge",
+        "z": "1413a3e3.3f22bc",
+        "name": "",
+        "group": "23fa88b6.34b278",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Gustavo's office",
+        "label": "C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#0027b3",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 760,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "77ee2f20.606d5",
+        "type": "blynk-ws-out-write",
+        "z": "1413a3e3.3f22bc",
+        "name": "V6 Report Current Temperature",
+        "pin": "6",
+        "pinmode": 0,
+        "client": "86fe6b36.cbe288",
+        "x": 830,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "b283a00f.54925",
+        "type": "ui_text",
+        "z": "1413a3e3.3f22bc",
+        "group": "23fa88b6.34b278",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "LED",
+        "label": "Wemos LED is: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "x": 590,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "cf31dc14.e9315",
+        "type": "mqtt out",
+        "z": "1413a3e3.3f22bc",
+        "name": "",
+        "topic": "JKLU/Gustavo2/LED",
+        "qos": "2",
+        "retain": "",
+        "broker": "dd1a0315.b23ae",
+        "x": 590,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "5c463e44.8cb32",
+        "type": "blynk-ws-out-email",
+        "z": "1413a3e3.3f22bc",
+        "name": "Gustavo Sanchez",
+        "email": "gsanchez@usb.ve",
+        "client": "86fe6b36.cbe288",
+        "x": 700,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "6e5b9ffa.ea0c6",
+        "type": "inject",
+        "z": "1413a3e3.3f22bc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Test Blyn App",
+        "payload": "",
+        "payloadType": "date",
+        "x": 470,
+        "y": 700,
+        "wires": [
+            [
+                "5c463e44.8cb32"
+            ]
+        ]
+    },
+    {
+        "id": "5d3a28de.f1e6b8",
+        "type": "blynk-ws-in-write",
+        "z": "1413a3e3.3f22bc",
+        "name": "",
+        "pin": 0,
+        "client": "86fe6b36.cbe288",
+        "x": 90,
+        "y": 580,
+        "wires": [
+            [
+                "b72eaf08.e6d46"
+            ]
+        ]
+    },
+    {
+        "id": "b72eaf08.e6d46",
+        "type": "change",
+        "z": "1413a3e3.3f22bc",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "0",
+                "fromt": "str",
+                "to": "OFF",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "1",
+                "fromt": "str",
+                "to": "ON",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 260,
+        "y": 620,
+        "wires": [
+            [
+                "cf31dc14.e9315",
+                "b283a00f.54925",
+                "b2800ab1.777078"
+            ]
+        ]
+    },
+    {
+        "id": "b2800ab1.777078",
+        "type": "ui_switch",
+        "z": "1413a3e3.3f22bc",
+        "name": "",
+        "label": "switch",
+        "tooltip": "",
+        "group": "23fa88b6.34b278",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "x": 270,
+        "y": 500,
+        "wires": [
+            [
+                "b283a00f.54925",
+                "cf31dc14.e9315",
+                "66aee853.b09d88"
+            ]
+        ]
+    },
+    {
+        "id": "a0bf2451.fbebd8",
+        "type": "blynk-ws-out-write",
+        "z": "1413a3e3.3f22bc",
+        "name": "V0 Button",
+        "pin": "0",
+        "pinmode": 0,
+        "client": "86fe6b36.cbe288",
+        "x": 900,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "4bf063f5.85578c",
+        "type": "delay",
+        "z": "1413a3e3.3f22bc",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 740,
+        "y": 620,
+        "wires": [
+            [
+                "a0bf2451.fbebd8"
+            ]
+        ]
+    },
+    {
+        "id": "66aee853.b09d88",
+        "type": "change",
+        "z": "1413a3e3.3f22bc",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "OFF",
+                "fromt": "str",
+                "to": "0",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "ON",
+                "fromt": "str",
+                "to": "1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 620,
+        "wires": [
+            [
+                "4bf063f5.85578c"
+            ]
+        ]
+    },
+    {
+        "id": "dd1a0315.b23ae",
+        "type": "mqtt-broker",
+        "name": "HV MQTT",
+        "broker": "broker.mqttdashboard.com",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "23fa88b6.34b278",
+        "type": "ui_group",
+        "name": "Thermometer",
+        "tab": "a9cc4011.4f89a",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "86fe6b36.cbe288",
+        "type": "blynk-ws-client",
+        "name": "Blynk app",
+        "path": "ws://blynk-cloud.com/websockets",
+        "key": "H4bKWBYwpcLiee7ILV1aVsieU6lhUzqY",
+        "dbg_all": false,
+        "dbg_read": true,
+        "dbg_write": false,
+        "dbg_notify": false,
+        "dbg_mail": false,
+        "dbg_prop": false,
+        "dbg_low": false,
+        "dbg_pins": "0"
+    },
+    {
+        "id": "a9cc4011.4f89a",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard"
+    }
+]
